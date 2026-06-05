@@ -16,21 +16,12 @@
     --warm-grey: #9E9188;
     --charcoal: #3A3330;
     --light-border: #EDE8E0;
-    --card-bg: #FFFFFF;
     --shadow: 0 2px 16px rgba(58,51,48,0.07);
     --shadow-hover: 0 8px 32px rgba(58,51,48,0.13);
   }
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--charcoal); line-height: 1.5; }
 
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--cream);
-    color: var(--charcoal);
-    line-height: 1.5;
-  }
-
-  /* ── HEADER ── */
   header {
     background: var(--warm-white);
     border-bottom: 1px solid var(--light-border);
@@ -39,343 +30,105 @@
     position: relative;
     overflow: hidden;
   }
-
   header::before {
-    content: '';
-    position: absolute;
-    top: -60px; left: -60px;
+    content: ''; position: absolute; top: -60px; left: -60px;
     width: 220px; height: 220px;
     background: radial-gradient(circle, var(--blush) 0%, transparent 70%);
-    opacity: 0.6;
-    pointer-events: none;
+    opacity: 0.6; pointer-events: none;
   }
-
   header::after {
-    content: '';
-    position: absolute;
-    bottom: -80px; right: -40px;
+    content: ''; position: absolute; bottom: -80px; right: -40px;
     width: 260px; height: 260px;
     background: radial-gradient(circle, var(--sage) 0%, transparent 70%);
-    opacity: 0.5;
-    pointer-events: none;
+    opacity: 0.5; pointer-events: none;
   }
-
   .header-eyebrow {
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--dusty-rose);
-    margin-bottom: 10px;
+    font-weight: 300; font-size: 11px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--dusty-rose); margin-bottom: 10px;
   }
-
   header h1 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(28px, 5vw, 46px);
-    font-weight: 600;
-    color: var(--charcoal);
-    line-height: 1.15;
-    margin-bottom: 12px;
+    font-size: clamp(28px, 5vw, 46px); font-weight: 600;
+    color: var(--charcoal); line-height: 1.15; margin-bottom: 12px;
   }
+  header h1 em { font-style: italic; color: var(--dusty-rose); }
+  header p { font-size: 14px; color: var(--warm-grey); font-weight: 300; max-width: 360px; margin: 0 auto; }
 
-  header h1 em {
-    font-style: italic;
-    color: var(--dusty-rose);
-  }
+  main { max-width: 900px; margin: 0 auto; padding: 48px 20px 64px; }
 
-  header p {
-    font-size: 14px;
-    color: var(--warm-grey);
-    font-weight: 300;
-    max-width: 360px;
-    margin: 0 auto;
-  }
+  .category { margin-bottom: 56px; animation: fadeUp 0.5s ease both; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
 
-  /* ── MAIN CONTENT ── */
-  main {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 48px 20px 64px;
-  }
-
-  /* ── CATEGORY SECTION ── */
-  .category {
-    margin-bottom: 56px;
-    animation: fadeUp 0.5s ease both;
-  }
-
-  .category:nth-child(1) { animation-delay: 0.05s; }
-  .category:nth-child(2) { animation-delay: 0.12s; }
-  .category:nth-child(3) { animation-delay: 0.19s; }
-  .category:nth-child(4) { animation-delay: 0.26s; }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(18px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  .category-header {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 20px;
-  }
-
+  .category-header { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
   .category-header h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px;
-    font-weight: 600;
-    color: var(--charcoal);
-    white-space: nowrap;
+    font-family: 'Playfair Display', serif; font-size: 22px;
+    font-weight: 600; color: var(--charcoal); white-space: nowrap;
   }
+  .category-header .divider { flex: 1; height: 1px; background: var(--light-border); }
+  .item-count { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--warm-grey); white-space: nowrap; }
 
-  .category-header .divider {
-    flex: 1;
-    height: 1px;
-    background: var(--light-border);
-  }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 
-  .item-count {
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--warm-grey);
-    font-weight: 400;
-    white-space: nowrap;
-  }
-
-  /* ── GRID ── */
-  .grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
-
-  /* ── CARD ── */
   .card {
-    background: var(--card-bg);
-    border: 1px solid var(--light-border);
-    border-radius: 14px;
-    overflow: hidden;
-    box-shadow: var(--shadow);
-    transition: box-shadow 0.25s ease, transform 0.25s ease;
-    position: relative;
+    background: #fff; border: 1px solid var(--light-border);
+    border-radius: 14px; overflow: hidden; box-shadow: var(--shadow);
+    transition: box-shadow 0.25s ease, transform 0.25s ease; position: relative;
   }
+  .card:hover { box-shadow: var(--shadow-hover); transform: translateY(-3px); }
+  .card.sold { opacity: 0.6; }
 
-  .card:hover {
-    box-shadow: var(--shadow-hover);
-    transform: translateY(-3px);
-  }
-
-  .card.sold {
-    opacity: 0.6;
-    pointer-events: none;
-  }
-
-  /* image placeholder */
   .card-img {
-    width: 100%;
-    aspect-ratio: 4/3;
+    width: 100%; aspect-ratio: 4/3;
     background: linear-gradient(135deg, #F0EBE3 0%, #E8E0D8 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
   }
+  .card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .img-placeholder { display: flex; flex-direction: column; align-items: center; gap: 6px; color: #C0B8B0; }
+  .img-placeholder svg { width: 32px; height: 32px; opacity: 0.5; }
+  .img-placeholder span { font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; }
 
-  .card-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .card-img .img-placeholder {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
-    color: #C0B8B0;
-  }
-
-  .card-img .img-placeholder svg {
-    width: 32px; height: 32px;
-    opacity: 0.5;
-  }
-
-  .card-img .img-placeholder span {
-    font-size: 10px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  /* sold ribbon */
   .sold-ribbon {
-    display: none;
-    position: absolute;
-    top: 12px; right: -24px;
-    background: var(--charcoal);
-    color: #fff;
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    padding: 4px 32px;
-    transform: rotate(35deg);
+    display: none; position: absolute; top: 12px; right: -24px;
+    background: var(--charcoal); color: #fff; font-size: 10px; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 4px 32px; transform: rotate(35deg);
   }
-
   .card.sold .sold-ribbon { display: block; }
 
-  /* card body */
-  .card-body {
-    padding: 14px 16px 16px;
-  }
-
-  .card-top {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 8px;
-    margin-bottom: 6px;
-  }
-
-  .card-name {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--charcoal);
-    line-height: 1.3;
-    flex: 1;
-  }
+  .card-body { padding: 14px 16px 16px; }
+  .card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 6px; }
+  .card-name { font-size: 14px; font-weight: 500; color: var(--charcoal); line-height: 1.3; flex: 1; }
 
   .condition-badge {
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    padding: 3px 8px;
-    border-radius: 20px;
-    white-space: nowrap;
-    flex-shrink: 0;
+    font-size: 10px; font-weight: 500; letter-spacing: 0.06em;
+    text-transform: uppercase; padding: 3px 8px; border-radius: 20px; white-space: nowrap; flex-shrink: 0;
   }
+  .condition-badge.like-new { background: #EAF4E8; color: #4A7A45; }
+  .condition-badge.good     { background: #EDF3FA; color: #3A6090; }
+  .condition-badge.fair     { background: #FDF3E7; color: #8A5A20; }
 
-  .condition-badge.like-new {
-    background: #EAF4E8;
-    color: #4A7A45;
-  }
+  .card-desc { font-size: 12px; color: var(--warm-grey); font-weight: 300; line-height: 1.5; margin-bottom: 12px; }
+  .card-footer { display: flex; align-items: center; justify-content: space-between; }
+  .card-price { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 600; color: var(--deep-rose); }
 
-  .condition-badge.good {
-    background: #EDF3FA;
-    color: #3A6090;
-  }
+  .status-tag { font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 10px; border-radius: 20px; }
+  .status-tag.available { background: var(--sage); color: #3A5C35; }
+  .status-tag.sold      { background: #EBEBEB; color: #888; text-decoration: line-through; }
 
-  .condition-badge.fair {
-    background: #FDF3E7;
-    color: #8A5A20;
-  }
-
-  .card-desc {
-    font-size: 12px;
-    color: var(--warm-grey);
-    font-weight: 300;
-    line-height: 1.5;
-    margin-bottom: 12px;
-  }
-
-  .card-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .card-price {
-    font-family: 'Playfair Display', serif;
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--deep-rose);
-  }
-
-  .status-tag {
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 3px 10px;
-    border-radius: 20px;
-  }
-
-  .status-tag.available {
-    background: var(--sage);
-    color: #3A5C35;
-  }
-
-  .status-tag.sold {
-    background: #EBEBEB;
-    color: #888;
-    text-decoration: line-through;
-  }
-
-  /* ── FOOTER ── */
-  footer {
-    background: var(--charcoal);
-    color: #C8BDB8;
-    text-align: center;
-    padding: 40px 24px;
-  }
-
-  footer h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 20px;
-    font-weight: 400;
-    color: var(--warm-white);
-    margin-bottom: 10px;
-  }
-
-  footer p {
-    font-size: 13px;
-    font-weight: 300;
-    margin-bottom: 20px;
-    max-width: 340px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.6;
-  }
-
-  .contact-links {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
+  footer { background: var(--charcoal); color: #C8BDB8; text-align: center; padding: 40px 24px; }
+  footer h3 { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 400; color: var(--warm-white); margin-bottom: 10px; }
+  footer p { font-size: 13px; font-weight: 300; margin-bottom: 20px; max-width: 340px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+  .contact-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
   .contact-links a {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    background: rgba(255,255,255,0.08);
-    color: var(--warm-white);
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 400;
-    padding: 9px 18px;
-    border-radius: 40px;
-    border: 1px solid rgba(255,255,255,0.12);
-    transition: background 0.2s;
+    display: inline-flex; align-items: center; gap: 7px;
+    background: rgba(255,255,255,0.08); color: var(--warm-white);
+    text-decoration: none; font-size: 13px; padding: 9px 18px;
+    border-radius: 40px; border: 1px solid rgba(255,255,255,0.12); transition: background 0.2s;
   }
+  .contact-links a:hover { background: rgba(255,255,255,0.15); }
+  footer .small { font-size: 11px; color: #7A706A; margin-top: 28px; }
 
-  .contact-links a:hover {
-    background: rgba(255,255,255,0.15);
-  }
-
-  footer .small {
-    font-size: 11px;
-    color: #7A706A;
-    margin-top: 28px;
-  }
-
-  /* ── RESPONSIVE ── */
   @media (max-width: 560px) {
     .grid { grid-template-columns: 1fr; }
     header { padding: 36px 20px 30px; }
@@ -385,367 +138,14 @@
 </head>
 <body>
 
-<!-- HEADER -->
 <header>
   <p class="header-eyebrow">Toronto · Local Pickup</p>
   <h1>Gently Loved<br><em>Baby Finds</em></h1>
   <p>Quality secondhand baby items at honest prices. Everything carefully used and well cared for.</p>
 </header>
 
-<main>
+<main id="main"></main>
 
-  <!-- ── FEEDING & PUMPING ── -->
-  <section class="category">
-    <div class="category-header">
-      <h2>Feeding &amp; Pumping</h2>
-      <div class="divider"></div>
-      <span class="item-count">4 items</span>
-    </div>
-    <div class="grid">
-
-      <div class="card">
-        <div class="card-img">
-          <div class="img-placeholder">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-            <span>Photo</span>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="card-top">
-            <span class="card-name">Eufy S1 Pro Breast Pump</span>
-            <span class="condition-badge like-new">Like New</span>
-          </div>
-          <p class="card-desc">Used for 3 months. All parts included, freshly sanitised. Original box.</p>
-          <div class="card-footer">
-            <span class="card-price">$120 CAD</span>
-            <span class="status-tag available">Available</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-img">
-          <div class="img-placeholder">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-            <span>Photo</span>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="card-top">
-            <span class="card-name">Haakaa Silicone Pump</span>
-            <span class="condition-badge good">Good</span>
-          </div>
-          <p class="card-desc">100ml capacity. Cleaned and sterilised. A breastfeeding essential.</p>
-          <div class="card-footer">
-            <span class="card-price">$15 CAD</span>
-            <span class="status-tag available">Available</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-img">
-          <div class="img-placeholder">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-            <span>Photo</span>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="card-top">
-            <span class="card-name">Bottle Drying Rack</span>
-            <span class="condition-badge like-new">Like New</span>
-          </div>
-          <p class="card-desc">Holds up to 6 bottles plus accessories. Compact design, easy to clean.</p>
-          <div class="card-footer">
-            <span class="card-price">$10 CAD</span>
-            <span class="status-tag available">Available</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="card sold">
-        <div class="card-img">
-          <div class="img-placeholder">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-            <span>Photo</span>
-          </div>
-          <div class="sold-ribbon">Sold</div>
-        </div>
-        <div class="card-body">
-          <div class="card-top">
-            <span class="card-name">Nursing Pillow</span>
-            <span class="condition-badge good">Good</span>
-          </div>
-          <p class="card-desc">Removable, washable cover. Firm support foam. Great for newborn stage.</p>
-          <div class="card-footer">
-            <span class="card-price">$25 CAD</span>
-            <span class="status-tag sold">Sold</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ── GEAR & TRAVEL ── -->
-  <section class="category">
-    <div class="category-header">
-      <h2>Gear &amp; Travel</h2>
-      <div class="divider"></div>
-      <span class="item-count">4 items</span>
-    </div>
-    <div class="grid">
-
-      <div class="card">
-        <div class="card-img">
-          <div class="img-placeholder">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-            <span>Photo</span>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="card-top">
-            <span class="card-name">Baby Carrier (Ergobaby)</span>
-            <span class="condition-badge like-new">Like New</span>
-          </div>
-          <p class="card-desc">Used occasionally. Supports newborn to 20kg. Lumbar support strap included.</p>
-          <div class="card-footer">
-            <span class="card-price">$45 CAD</span>
-            <span class="status-tag available">Available</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-img">
-          <div class="img-placeholder">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-            <span>Photo</span>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="card-top">
-            <span class="card-name">Portable Bassinet</span>
-            <span class="condition-badge good">Good</span>
-          </div>
-          <p class="card-desc">Folds flat for travel. Mesh sides for airflow. Sheet included. Used 4 months.</p>
-          <div class="card-footer">
-            <span class="card-price">$60 CAD</span>
-            <span class="status-tag available">Available</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-img">
-          <div class="img-placeholder">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-            <span>Photo</span>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="card-top">
-            <span class="card-name">Baby Bouncer Seat</span>
-            <span class="condition-badge good">Good</span>
-          </div>
-          <p class="card-desc">3 recline positions, vibration mode. Cover is removable and machine-washable.</p>
-          <div class="card-footer">
-            <span class="card-price">$35 CAD</span>
-            <span class="status-tag available">Available</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-img">
-          <div class="img-placeholder">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-            <span>Photo</span>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="card-top">
-            <span class="card-name">Stroller Organiser</span>
-            <span class="condition-badge like-new">Like New</span>
-          </div>
-          <p class="card-desc">Universal fit. Two insulated cup holders, zippered pouch. Barely used.</p>
-          <div class="card-footer">
-            <span class="card-price">$18 CAD</span>
-            <span class="status-tag available">Available</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ── CLOTHING ── -->
-  <section class="category">
-    <div class="category-header">
-      <h2>Clothing (0–3 Months)</h2>
-      <div class="divider"></div>
-      <span class="item-count">4 items</span>
-    </div>
-    <div class="grid">
-
-      <div class="card">
-        <div class="card-img">
-          <div class="img-placeholder">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-            <span>Photo</span>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="card-top">
-            <span class="card-name">Sleeper Bundle (6 pieces)</span>
-            <span class="condition-badge good">Good</span>
-          </div>
-          <p class="card-desc">Mixed brands. All washed, no stains. Snaps and zippers all intact.</p>
-          <div class="card-footer">
-            <span class="card-price">$20 CAD</span>
-            <span class="status-tag available">Available</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-img">
-          <div class="img-placeholder">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-            <span>Photo</span>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="card-top">
-            <span class="card-name">Swaddle Set (4 muslins)</span>
-            <span class="condition-badge like-new">Like New</span>
-          </div>
-          <p class="card-desc">100% cotton muslin. Large 120×120cm. Neutral colours, soft with washes.</p>
-          <div class="card-footer">
-            <span class="card-price">$12 CAD</span>
-            <span class="status-tag available">Available</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-img">
-          <div class="img-placeholder">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-            <span>Photo</span>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="card-top">
-            <span class="card-name">Snowsuit (3M)</span>
-            <span class="condition-badge like-new">Like New</span>
-          </div>
-          <p class="card-desc">Worn twice. Fleece-lined, waterproof outer shell. Perfect for a Toronto winter.</p>
-          <div class="card-footer">
-            <span class="card-price">$22 CAD</span>
-            <span class="status-tag available">Available</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-img">
-          <div class="img-placeholder">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-            <span>Photo</span>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="card-top">
-            <span class="card-name">Hat &amp; Mitten Set (5 pairs)</span>
-            <span class="condition-badge fair">Fair</span>
-          </div>
-          <p class="card-desc">Slight pilling on one hat. All functional, great for bundling up baby.</p>
-          <div class="card-footer">
-            <span class="card-price">$8 CAD</span>
-            <span class="status-tag available">Available</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ── BATH & CARE ── -->
-  <section class="category">
-    <div class="category-header">
-      <h2>Bath &amp; Care</h2>
-      <div class="divider"></div>
-      <span class="item-count">3 items</span>
-    </div>
-    <div class="grid">
-
-      <div class="card">
-        <div class="card-img">
-          <div class="img-placeholder">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-            <span>Photo</span>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="card-top">
-            <span class="card-name">Infant Bath Tub</span>
-            <span class="condition-badge good">Good</span>
-          </div>
-          <p class="card-desc">Ergonomic newborn insert included. Drain plug works perfectly. Cleaned thoroughly.</p>
-          <div class="card-footer">
-            <span class="card-price">$20 CAD</span>
-            <span class="status-tag available">Available</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-img">
-          <div class="img-placeholder">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-            <span>Photo</span>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="card-top">
-            <span class="card-name">Hooded Towel Set (×3)</span>
-            <span class="condition-badge like-new">Like New</span>
-          </div>
-          <p class="card-desc">Extra-soft cotton. Oversized for snuggly wrap-ups. Machine washed, very fluffy.</p>
-          <div class="card-footer">
-            <span class="card-price">$16 CAD</span>
-            <span class="status-tag available">Available</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-img">
-          <div class="img-placeholder">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-            <span>Photo</span>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="card-top">
-            <span class="card-name">Change Mat + Cover</span>
-            <span class="condition-badge good">Good</span>
-          </div>
-          <p class="card-desc">Foam mat with 2 waterproof covers. No tears or stains. Great for the floor or dresser top.</p>
-          <div class="card-footer">
-            <span class="card-price">$14 CAD</span>
-            <span class="status-tag available">Available</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-</main>
-
-<!-- FOOTER -->
 <footer>
   <h3>Interested in something?</h3>
   <p>All items available for local pickup in Toronto. Feel free to message with questions or to arrange a viewing.</p>
@@ -766,5 +166,62 @@
   <p class="small">Toronto, Ontario · Items sold as-is · Cash or e-Transfer accepted</p>
 </footer>
 
+<script src="items.js"></script>
+<script>
+  // Group items by category
+  const grouped = {};
+  ITEMS.forEach(item => {
+    if (!grouped[item.category]) grouped[item.category] = [];
+    grouped[item.category].push(item);
+  });
+
+  const main = document.getElementById('main');
+  let delay = 0.05;
+
+  Object.entries(grouped).forEach(([category, items]) => {
+    const conditionClass = c => c.toLowerCase().replace(' ', '-');
+
+    const cards = items.map(item => {
+      const isSold = item.status === 'sold';
+      const imgHTML = item.photo
+        ? `<img src="${item.photo}" alt="${item.name}">`
+        : `<div class="img-placeholder">
+             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+             <span>Photo</span>
+           </div>`;
+
+      return `
+        <div class="card${isSold ? ' sold' : ''}">
+          <div class="card-img">
+            ${imgHTML}
+            <div class="sold-ribbon">Sold</div>
+          </div>
+          <div class="card-body">
+            <div class="card-top">
+              <span class="card-name">${item.name}</span>
+              <span class="condition-badge ${conditionClass(item.condition)}">${item.condition}</span>
+            </div>
+            <p class="card-desc">${item.description}</p>
+            <div class="card-footer">
+              <span class="card-price">${item.price}</span>
+              <span class="status-tag ${item.status}">${isSold ? 'Sold' : 'Available'}</span>
+            </div>
+          </div>
+        </div>`;
+    }).join('');
+
+    main.innerHTML += `
+      <section class="category" style="animation-delay:${delay}s">
+        <div class="category-header">
+          <h2>${category}</h2>
+          <div class="divider"></div>
+          <span class="item-count">${items.length} item${items.length !== 1 ? 's' : ''}</span>
+        </div>
+        <div class="grid">${cards}</div>
+      </section>`;
+
+    delay += 0.07;
+  });
+</script>
 </body>
 </html>
