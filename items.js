@@ -3,41 +3,23 @@ const ITEMS = [
   // ─────────────────────────────────────────
   // FEEDING & PUMPING
   // ─────────────────────────────────────────
-  {
+    {
     category: "Feeding & Pumping",
-    name: "Eufy S1 Pro Breast Pump",
-    price: "$120 CAD",
-    condition: "Like New",   // Like New / Good / Fair
-    description: "Used for 3 months. All parts included, freshly sanitised. Original box.",
-    photo: "photos/eufy-pump.jpg",   // put your photo in the photos/ folder and write the filename here
-    status: "available"      // available / sold
-  },
-  {
-    category: "Feeding & Pumping",
-    name: "Haakaa Silicone Pump",
-    price: "$15 CAD",
-    condition: "Good",
-    description: "100ml capacity. Cleaned and sterilised. A breastfeeding essential.",
-    photo: "",               // leave empty for a placeholder
-    status: "available"
-  },
-  {
-    category: "Feeding & Pumping",
-    name: "Bottle Drying Rack",
-    price: "$10 CAD",
-    condition: "Like New",
-    description: "Holds up to 6 bottles plus accessories. Compact design, easy to clean.",
-    photo: "",
+    name: "Nursing Pillow",
+    price: "$100 CAD",
+    condition: "Brand New - in the Box",
+    description: "Brand new My Brest Friend Super Deluxe Nursing Pillow. Received 3 Nuring pillows by registery mistake, Removable, washable cover. Firm support foam. ENHANCED wrap around back and Lumbar Support",
+    photo: "photos/NursingPillow.jpg",
     status: "available"
   },
   {
     category: "Feeding & Pumping",
     name: "Nursing Pillow",
-    price: "$25 CAD",
-    condition: "Good",
-    description: "Removable, washable cover. Firm support foam. Great for newborn stage.",
-    photo: "",
-    status: "sold"           // ← mark as sold like this
+    price: "$50 CAD",
+    condition: "Like New",
+    description: "Barely used My Brest Friend Super Deluxe Nursing Pillow. Received 3 Nuring pillows by registery mistake, Removable, washable cover. Firm support foam. ENHANCED wrap around back and Lumbar Support.",
+    photo: "photos/NursingPillow.jpg",
+    status: "available"           
   },
 
   // ─────────────────────────────────────────
@@ -49,7 +31,7 @@ const ITEMS = [
     price: "$45 CAD",
     condition: "Like New",
     description: "Used occasionally. Supports newborn to 20kg. Lumbar support strap included.",
-    photo: "",
+    photos: [],
     status: "available"
   },
   {
@@ -58,7 +40,7 @@ const ITEMS = [
     price: "$60 CAD",
     condition: "Good",
     description: "Folds flat for travel. Mesh sides for airflow. Sheet included. Used 4 months.",
-    photo: "",
+    photos: [],
     status: "available"
   },
   {
@@ -67,7 +49,7 @@ const ITEMS = [
     price: "$35 CAD",
     condition: "Good",
     description: "3 recline positions, vibration mode. Cover is removable and machine-washable.",
-    photo: "",
+    photos: [],
     status: "available"
   },
   {
@@ -76,7 +58,7 @@ const ITEMS = [
     price: "$18 CAD",
     condition: "Like New",
     description: "Universal fit. Two insulated cup holders, zippered pouch. Barely used.",
-    photo: "",
+    photos: [],
     status: "available"
   },
 
@@ -89,7 +71,7 @@ const ITEMS = [
     price: "$20 CAD",
     condition: "Good",
     description: "Mixed brands. All washed, no stains. Snaps and zippers all intact.",
-    photo: "",
+    photos: [],
     status: "available"
   },
   {
@@ -98,7 +80,7 @@ const ITEMS = [
     price: "$12 CAD",
     condition: "Like New",
     description: "100% cotton muslin. Large 120×120cm. Neutral colours, soft with washes.",
-    photo: "",
+    photos: [],
     status: "available"
   },
   {
@@ -107,7 +89,7 @@ const ITEMS = [
     price: "$22 CAD",
     condition: "Like New",
     description: "Worn twice. Fleece-lined, waterproof outer shell. Perfect for a Toronto winter.",
-    photo: "",
+    photos: [],
     status: "available"
   },
   {
@@ -116,7 +98,7 @@ const ITEMS = [
     price: "$8 CAD",
     condition: "Fair",
     description: "Slight pilling on one hat. All functional, great for bundling up baby.",
-    photo: "",
+    photos: [],
     status: "available"
   },
 
@@ -129,7 +111,7 @@ const ITEMS = [
     price: "$20 CAD",
     condition: "Good",
     description: "Ergonomic newborn insert included. Drain plug works perfectly. Cleaned thoroughly.",
-    photo: "",
+    photos: [],
     status: "available"
   },
   {
@@ -138,7 +120,7 @@ const ITEMS = [
     price: "$16 CAD",
     condition: "Like New",
     description: "Extra-soft cotton. Oversized for snuggly wrap-ups. Machine washed, very fluffy.",
-    photo: "",
+    photos: [],
     status: "available"
   },
   {
@@ -147,7 +129,7 @@ const ITEMS = [
     price: "$14 CAD",
     condition: "Good",
     description: "Foam mat with 2 waterproof covers. No tears or stains. Great for the floor or dresser top.",
-    photo: "",
+    photos: [],
     status: "available"
   },
 
