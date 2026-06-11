@@ -9,7 +9,7 @@ const ITEMS = [
     price: "$100 CAD",
     condition: "Brand New - in the Box",
     description: "Brand new My Brest Friend Super Deluxe Nursing Pillow. Received 3 Nuring pillows by registery mistake, Removable, washable cover. Firm support foam. ENHANCED wrap around back and Lumbar Support",
-    photos: "photos/NursingPillow.jpg",
+    photos: ["photos/NursingPillow.jpg", "photos/NursingPillow.jpg"],
     status: "available"
   },
   {
@@ -18,7 +18,7 @@ const ITEMS = [
     price: "$50 CAD",
     condition: "Like New",
     description: "Barely used My Brest Friend Super Deluxe Nursing Pillow. Received 3 Nuring pillows by registery mistake, Removable, washable cover. Firm support foam. ENHANCED wrap around back and Lumbar Support.",
-    photos: "photos/NursingPillow.jpg",
+    photos: ["photos/NursingPillow.jpg", "photos/NursingPillow.jpg"],
     status: "available"           
   },
 
